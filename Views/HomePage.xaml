@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="HomePageRef"
+             xmlns:viewmodels="clr-namespace:PsicoAgenda.ViewModels"
+             x:Class="PsicoAgenda.Views.HomePage"
+             Title="Inicio">
+
+    <ContentPage.BindingContext>
+        <viewmodels:HomeViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid RowDefinitions="Auto, *">
+        <Frame Grid.Row="0" Padding="15" BackgroundColor="#512BD4">
+            <Label Text="{Binding FechaActual}"
+                   FontSize="18"
+                   TextColor="White"
+                   HorizontalOptions="Center" />
+        </Frame>
+
+        <RefreshView Grid.Row="1"
+                     Command="{Binding LoadCitasCommand}"
+                     IsRefreshing="{Binding IsBusy}">
+            <CollectionView ItemsSource="{Binding CitasDelDia}"
+                            SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Margin="10" Padding="15">
+                            <Grid ColumnDefinitions="Auto, *"
+                                  RowDefinitions="Auto, Auto, Auto">
+                                <Label Grid.Row="0" Grid.Column="0"
+                                       Text="{Binding FechaCita, StringFormat='{}{0:HH:mm}'}"
+                                       FontSize="16"
+                                       VerticalOptions="Start" />
+                                
+                                
+                                <Label Grid.Row="0" Grid.Column="1"
+                                       Text="{Binding PacienteNombre}"
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Start"
+                                       Margin="10,0,0,0"/>
+                                
+                                <Label Grid.Row="1" Grid.Column="1"
+                                       Text="{Binding Estado}"
+                                       TextColor="{Binding EstadoColor}" 
+                                       Margin="10,0,0,0"/>
+                                
+                                <Button Grid.Row="2" Grid.Column="2"
+                                        Text="Notificar"
+                                        ImageSource="notificacion.png"
+                                        Command="{Binding BindingContext.NotificarCitaCommand, Source={x:Reference HomePageRef}}"
+                                        CommandParameter="{Binding Id}"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="Center"
+                                        BackgroundColor="#512BD4"
+                                        TextColor="White"
+                                        Padding="10,5"
+                                        CornerRadius="10" 
+                                        Margin="0,10,0,0"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </Grid>
+    
+</ContentPage>

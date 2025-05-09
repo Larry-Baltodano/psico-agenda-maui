@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
+             x:Class="PsicoAgenda.Views.PacientesModalPage"
+             Title="{Binding Title}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Entry Placeholder="Nombre completo" Text="{Binding Nombre}" />
+            <Entry Placeholder="Email" Keyboard="Email" Text="{Binding Email}" />
+            <Entry Placeholder="Teléfono" Keyboard="Telephone" Text="{Binding Telefono}" />
+            <Entry Placeholder="Dirección" Text="{Binding Direccion}" />
+            <Editor Placeholder="Notas" Text="{Binding Nota}" HeightRequest="100" />
+            <Entry Placeholder="Psicologo ID" Keyboard="Numeric" Text="{Binding PsicologoId}" />
+
+            <Button Text="{Binding SaveButtonText}" 
+                    Command="{Binding SaveCommand}" />
+
+            <Button Text="Cancelar" 
+                    Command="{Binding CancelCommand}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

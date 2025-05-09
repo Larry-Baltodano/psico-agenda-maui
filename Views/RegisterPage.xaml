@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:PsicoAgenda.ViewModels"
+             x:Class="PsicoAgenda.Views.RegisterPage"
+             Title="Registro de usuarios">
+    <ContentPage.BindingContext>
+        <vm:RegisterViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Entry Placeholder="Nombre completo" Text="{Binding NombreCompleto}"/>
+            <Entry Placeholder="Email" Keyboard="Email" Text="{Binding Email}" />
+            <Entry Placeholder="Teléfono" Keyboard="Telephone" Text="{Binding Telefono}" />
+            <Entry Placeholder="Password" IsPassword="True" Text="{Binding Password}" />
+            <Entry Placeholder="Confirmar Password" IsPassword="True" Text="{Binding ConfirmPassword}" />
+            <Picker Title="Selecciona Rol" ItemsSource="{Binding Roles}" SelectedItem="{Binding Rol}" />
+            <Entry Placeholder="Especialidad" Text="{Binding Especialidad}" />
+            <Entry Placeholder="Direccion" Text="{Binding Direccion}" />
+            <Entry Placeholder="Horario de atencion" Text="{Binding HorarioAtencion}" />
+
+            <Button Text="Registrase"
+                    Command="{Binding RegisterCommand}"
+                    BackgroundColor="#512BD4"
+                    TextColor="White" />
+            <Label Text="¿Ya tienes cuenta? Inicia sesión"
+                   TextColor="#512BD4"
+                   HorizontalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoToLoginCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

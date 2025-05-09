@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="PsicoAgenda.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:PsicoAgenda.Views"
+    Shell.TabBarIsVisible="True"
+    Shell.FlyoutBehavior="Disabled"
+    Title="PsicoAgenda">
+
+    <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+    <ShellContent Route="RegisterPage" ContentTemplate="{DataTemplate local:RegisterPage}" />
+
+    <TabBar>
+        <Tab Title="Inicio" Icon="home.png" Route="Inicio">
+            <ShellContent ContentTemplate="{DataTemplate local:HomePage}" />
+        </Tab>
+        <Tab Title="Citas" Icon="citas.png">
+            <ShellContent ContentTemplate="{DataTemplate local:CitasPage}" />
+        </Tab>
+        <Tab Title="Pacientes" Icon="pacientes.png">
+            <ShellContent ContentTemplate="{DataTemplate local:PacientesPage}" />
+        </Tab>
+        <Tab Title="Perfil" Icon="ajustes.png">
+            <ShellContent ContentTemplate="{DataTemplate local:ProfilePage}" />
+        </Tab>
+    </TabBar>
+</Shell>

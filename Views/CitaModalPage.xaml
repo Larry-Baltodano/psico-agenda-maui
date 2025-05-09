@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:PsicoAgenda.ViewModels"
+             x:Class="PsicoAgenda.Views.CitaModalPage"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <viewmodels:CitaModalViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="ID cita"
+                   IsVisible="{Binding IsEditing}"
+                   FontAttributes="Bold" />
+            <Label Text="{Binding CitaId}"
+                   IsVisible="{Binding IsEditing}" />
+
+            <Entry Placeholder="ID paciente"
+                   Keyboard="Numeric"
+                   Text="{Binding PacienteId}" />
+            <Entry Placeholder="ID psicologo"
+                   Keyboard="Numeric"
+                   Text="{Binding PsicologoId}" />
+            <Entry Placeholder="Duracion (minutos)"
+                   Keyboard="Numeric"
+                   Text="{Binding DuracionMinutos}" />
+            <DatePicker Date="{Binding FechaCita}" />
+            <TimePicker Time="{Binding HoraCita}" />
+
+            <Picker Title="Estado"
+                    ItemsSource="{Binding Estados}"
+                    SelectedItem="{Binding Estado}" />
+
+            <Button Text="Guardar"
+                    Command="{Binding SaveCommand}"
+                    BackgroundColor="#512BD4"
+                    TextColor="White" />
+            <Button Text="Cancelar"
+                    Command="{Binding CancelCommand}"
+                    BackgroundColor="LightGray" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsicoAgenda", "PsicoAgenda.csproj", "{23107771-7AEC-43BB-BFD3-C6477F45A792}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsicoAgenda.API", "..\PsicoAgenda.API\PsicoAgenda.API.csproj", "{A4C8B5CE-3EB2-4FEF-B20D-311243C5E4C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23107771-7AEC-43BB-BFD3-C6477F45A792}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23107771-7AEC-43BB-BFD3-C6477F45A792}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23107771-7AEC-43BB-BFD3-C6477F45A792}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{23107771-7AEC-43BB-BFD3-C6477F45A792}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23107771-7AEC-43BB-BFD3-C6477F45A792}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23107771-7AEC-43BB-BFD3-C6477F45A792}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A4C8B5CE-3EB2-4FEF-B20D-311243C5E4C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4C8B5CE-3EB2-4FEF-B20D-311243C5E4C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4C8B5CE-3EB2-4FEF-B20D-311243C5E4C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4C8B5CE-3EB2-4FEF-B20D-311243C5E4C1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DCE60205-B1CC-4EE2-9AE4-983F385161FD}
+	EndGlobalSection
+EndGlobal

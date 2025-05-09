@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:PsicoAgenda.ViewModels"
+             x:Class="PsicoAgenda.Views.CitasPage"
+             Title="Citas">
+    <ContentPage.BindingContext>
+        <viewmodels:CitasViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid RowDefinitions="Auto, Auto, *">
+        <SearchBar Grid.Row="0"
+                   Placeholder="Buscar por ID..."
+                   Text="{Binding SearchTerm}"
+                   SearchCommand="{Binding SearchCommand}" />
+
+        <Button Grid.Row="1"
+                Text="Nueva cita"
+                Command="{Binding ShowModalCommand}"
+                HorizontalOptions="End"
+                Margin="0, 0, 20, 20"
+                WidthRequest="160"
+                Background="#512BD4"
+                TextColor="White" />
+
+        <CollectionView Grid.Row="2"
+                        ItemsSource="{Binding Citas}"
+                        SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="10" Padding="15">
+                        <Grid ColumnDefinitions="*, Auto">
+                            <VerticalStackLayout Grid.Column="0">
+                                <Label Text="{Binding PacienteNombre}"
+                                       FontAttributes="Bold"/>
+                                <Label Text="{Binding FechaCita, StringFormat='{0:dd/MM/yyyy HH:mm}'}" />
+                                <Label Text="{Binding Estado}" TextColor="{Binding EstadoColor}" />
+                            </VerticalStackLayout>
+
+                            <HorizontalStackLayout Grid.Column="1">
+                                <Button Text="Editar" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:CitasViewModel}}, Path=EditCommand}"
+                                        CommandParameter="{Binding .}"
+                                        BackgroundColor="Orange"
+                                        TextColor="White" />
+
+                                <Button Text="Eliminar" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:CitasViewModel}}, Path=DeleteCommand}"
+                                        CommandParameter="{Binding .}"
+                                        BackgroundColor="Red"
+                                        TextColor="White"
+                                        Margin="5,0,0,0" />
+                            </HorizontalStackLayout>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
